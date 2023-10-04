@@ -8,7 +8,7 @@ DateTime lastUpdateTime = DateTime.MinValue;
 DateTime currentDate = DateTime.Now;
 string Date = currentDate.ToString("yyyy-MM-dd");
 
-string localDirectory = "local_directory";
+string localDirectory = "@/data/MotionDetect/" + Date + "";
 
 string lineNotifyToken = "JAxPFavKxgi07CLsN2eE29Li09eXa6Ab7ncHikkFAtQ";
 
