@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/p.chayakul/Library/CloudStorage/GoogleDrive-pathawee.c@transcodeglobal.com/My Drive/Transcode/Project/Smart Highway/CCTV Security/CCTV_Security/CCTV Security/CCTV Security.csproj",
-      "projectName": "CCTV Security",
-      "projectPath": "/Users/p.chayakul/Library/CloudStorage/GoogleDrive-pathawee.c@transcodeglobal.com/My Drive/Transcode/Project/Smart Highway/CCTV Security/CCTV_Security/CCTV Security/CCTV Security.csproj",
+      "projectUniqueName": "/Users/p.chayakul/Library/CloudStorage/GoogleDrive-pathawee.c@transcodeglobal.com/My Drive/Transcode/Project/Smart Highway/CCTV_Security/CCTV_Security/CCTV_Security/CCTV_Security.csproj",
+      "projectName": "CCTV_Security",
+      "projectPath": "/Users/p.chayakul/Library/CloudStorage/GoogleDrive-pathawee.c@transcodeglobal.com/My Drive/Transcode/Project/Smart Highway/CCTV_Security/CCTV_Security/CCTV_Security/CCTV_Security.csproj",
       "packagesPath": "/Users/p.chayakul/.nuget/packages/",
-      "outputPath": "/Users/p.chayakul/Library/CloudStorage/GoogleDrive-pathawee.c@transcodeglobal.com/My Drive/Transcode/Project/Smart Highway/CCTV Security/CCTV_Security/CCTV Security/obj/",
+      "outputPath": "/Users/p.chayakul/Library/CloudStorage/GoogleDrive-pathawee.c@transcodeglobal.com/My Drive/Transcode/Project/Smart Highway/CCTV_Security/CCTV_Security/CCTV_Security/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/p.chayakul/.nuget/NuGet/NuGet.Config"
