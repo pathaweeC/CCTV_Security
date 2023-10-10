@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "CCTV Security/1.0.0": {
+      "CCTV_Security/1.0.0": {
         "runtime": {
-          "CCTV Security.dll": {}
+          "CCTV_Security.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "CCTV Security/1.0.0": {
+    "CCTV_Security/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
