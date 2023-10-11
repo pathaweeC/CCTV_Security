@@ -7,20 +7,19 @@ class Program
 {
     private static async Task Main(string[] args)
     {
-        DateTime currentDate = DateTime.Now;
-        string Date = currentDate.ToString("yyyy-MM-dd");
-
-        string localDirectory = "@/data/MotionDetect/" + Date + "";
-
-        string lineNotifyToken = "JAxPFavKxgi07CLsN2eE29Li09eXa6Ab7ncHikkFAtQ";
-
-        if (!Directory.Exists(localDirectory))
-        {
-            Directory.CreateDirectory(localDirectory);
-        }
 
         while (true)
         {
+            DateTime currentDate = DateTime.Now;
+            string Date = currentDate.ToString("yyyy-MM-dd");
+
+            string localDirectory = "@/data/MotionDetect/" + Date + "";
+
+            if (!Directory.Exists(localDirectory))
+            {
+                Directory.CreateDirectory(localDirectory);
+            }
+
             try
             {
                 DateTime lastUpdateTime = DateTime.MinValue;
@@ -50,6 +49,7 @@ class Program
         // line noti sender task
         async Task SendPictureToLineNotifyAsync(string imagePath, string message)
         {
+            string lineNotifyToken = "JAxPFavKxgi07CLsN2eE29Li09eXa6Ab7ncHikkFAtQ";
             using (var httpClient = new HttpClient())
             {
                 var content = new MultipartFormDataContent();
