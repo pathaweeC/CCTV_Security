@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CCTV_Security/1.0.0": {
+        "runtime": {
+          "CCTV_Security.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CCTV_Security/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
