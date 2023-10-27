@@ -20,9 +20,9 @@ internal class Program
         {
             Directory.CreateDirectory(localDirectory);
         }
-
-        Console.WriteLine(localDirectory);
         Console.WriteLine("qwe");
+        Console.WriteLine(localDirectory);
+
         while (true)
         {
             try
