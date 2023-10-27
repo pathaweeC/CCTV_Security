@@ -15,7 +15,7 @@ class Program
 
             string localDirectory = "@/data/MotionDetect/" + Date + "";
 
-            Console.WriteLine(Date);
+            
 
             if (!Directory.Exists(localDirectory))
             {
@@ -24,6 +24,8 @@ class Program
 
             try
             {
+                Console.WriteLine(Date);
+
                 DateTime lastUpdateTime = DateTime.MinValue;
                 // Get Current Date
 
