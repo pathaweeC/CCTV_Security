@@ -10,8 +10,6 @@ class Program
 
     static async Task Main(string[] args)
     {
-        Console.WriteLine("Waiting for new images in the folder...");
-
         // Get Current Date
         DateTime currentDate = DateTime.Now;
         string Date = currentDate.ToString("yyyy-MM-dd");
@@ -19,14 +17,15 @@ class Program
 
         while (true)
         {
+            Console.WriteLine("Waiting for new images in the folder...");
             string latestImage = GetLatestImage(localDirectory);
 
-            if (!string.IsNullOrEmpty(latestImage) && File.GetLastWriteTime(latestImage) > lastUpdateTime)
-            {
+            //if (!string.IsNullOrEmpty(latestImage) && File.GetLastWriteTime(latestImage) > lastUpdateTime)
+            //{
                 // Send the latest image to Line Notify with a message
                 await SendPictureToLineNotifyAsync(latestImage, "Motion Detected");
                 lastUpdateTime = File.GetLastWriteTime(latestImage);
-            }
+            //}
 
             // Sleep for a period before checking again (e.g., every 5 seconds)
             await Task.Delay(TimeSpan.FromSeconds(5));
@@ -36,7 +35,6 @@ class Program
     static string GetLatestImage(string folderPath)
     {
         string[] imageFiles = Directory.GetFiles(folderPath, "*.jpg");
-        Console.WriteLine(imageFiles);
 
         if (imageFiles.Length == 0)
         {
