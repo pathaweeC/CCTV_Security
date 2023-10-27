@@ -36,6 +36,7 @@ class Program
     static string GetLatestImage(string folderPath)
     {
         string[] imageFiles = Directory.GetFiles(folderPath, "*.jpg");
+        Console.WriteLine(imageFiles);
 
         if (imageFiles.Length == 0)
         {
