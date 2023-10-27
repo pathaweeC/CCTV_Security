@@ -30,9 +30,11 @@ internal class Program
 
                 string latestImage = GetLatestImage(localDirectory);
 
+                Console.WriteLine("qwe");
                 //if (!string.IsNullOrEmpty(latestImage) && File.GetLastWriteTime(latestImage) > lastUpdateTime)
                 if (!string.IsNullOrEmpty(latestImage))
                 {
+                    Console.WriteLine("asd");
                     // Send the latest image to Line
                     await SendPictureToLineNotifyAsync(latestImage, "Motion Detected");
                     lastUpdateTime = File.GetLastWriteTime(latestImage);
