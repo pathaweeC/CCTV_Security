@@ -14,7 +14,7 @@ class Program
         DateTime currentDate = DateTime.Now;
         string Date = currentDate.ToString("yyyy-MM-dd");
 
-        string localDirectory = "@/data/MotionDetect/" + Date + "";
+        string localDirectory = "/data/MotionDetect/" + Date + "";
 
         string lineNotifyToken = "JAxPFavKxgi07CLsN2eE29Li09eXa6Ab7ncHikkFAtQ";
 
@@ -33,14 +33,14 @@ class Program
                 string latestImage = GetLatestImage(localDirectory);
 
 
-                //if (!string.IsNullOrEmpty(latestImage) && File.GetLastWriteTime(latestImage) > lastUpdateTime)
+                if (!string.IsNullOrEmpty(latestImage) && File.GetLastWriteTime(latestImage) > lastUpdateTime)
                 //if (!string.IsNullOrEmpty(latestImage))
-                //{
+                {
                     Console.WriteLine("asd");
                     // Send the latest image to Line
                     await SendPictureToLineNotifyAsync(latestImage, "Motion Detected");
                     lastUpdateTime = File.GetLastWriteTime(latestImage);
-                //}
+                }
 
                 // Sleep for a period before checking again (e.g., every 5 seconds)
                 await Task.Delay(TimeSpan.FromSeconds(5));
