@@ -7,16 +7,12 @@ class Program
 {
     private static async Task Main(string[] args)
     {
-        //Console.WriteLine("Date");
-
         while (true)
         {
             DateTime currentDate = DateTime.Now;
             string Date = currentDate.ToString("yyyy-MM-dd");
 
             string localDirectory = "@/data/MotionDetect/" + Date + "";
-
-            
 
             if (!Directory.Exists(localDirectory))
             {
