@@ -20,15 +20,15 @@ class Program
             Console.WriteLine("Waiting for new images in the folder...");
             string latestImage = GetLatestImage(localDirectory);
 
-            //if (!string.IsNullOrEmpty(latestImage) && File.GetLastWriteTime(latestImage) > lastUpdateTime)
-            //{
+            if (!string.IsNullOrEmpty(latestImage) /*&& File.GetLastWriteTime(latestImage) > lastUpdateTime*/)
+            {
                 // Send the latest image to Line Notify with a message
                 await SendPictureToLineNotifyAsync(latestImage, "Motion Detected");
                 lastUpdateTime = File.GetLastWriteTime(latestImage);
-            //}
+            }
 
-            // Sleep for a period before checking again (e.g., every 5 seconds)
-            await Task.Delay(TimeSpan.FromSeconds(5));
+        // Sleep for a period before checking again (e.g., every 5 seconds)
+        await Task.Delay(TimeSpan.FromSeconds(5));
         }
     }
 
