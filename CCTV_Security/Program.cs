@@ -3,59 +3,40 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-class Program
-{
-    private static DateTime lastUpdateTime = DateTime.MinValue;
-    private const string lineNotifyToken = "JAxPFavKxgi07CLsN2eE29Li09eXa6Ab7ncHikkFAtQ";
+DateTime lastUpdateTime = DateTime.MinValue;
+// Get Current Date
+DateTime currentDate = DateTime.Now;
+string Date = currentDate.ToString("yyyy-MM-dd");
 
-    private static async Task Main(string[] args)
+string localDirectory = "@/data/MotionDetect/" + Date + "";
+
+string lineNotifyToken = "JAxPFavKxgi07CLsN2eE29Li09eXa6Ab7ncHikkFAtQ";
+
+if (!Directory.Exists(localDirectory))
+{
+    Directory.CreateDirectory(localDirectory);
+}
+
+while (true)
+{
+    try
     {
 
-        // Get Current Date
-        DateTime currentDate = DateTime.Now;
-        string Date = currentDate.ToString("yyyy-MM-dd");
+        string latestImage = GetLatestImage(localDirectory);
 
-        string localDirectory = "@/data/MotionDetect/" + Date + "";
-
-        if (!Directory.Exists(localDirectory))
+        if (!string.IsNullOrEmpty(latestImage) && File.GetLastWriteTime(latestImage) > lastUpdateTime)
         {
-            Directory.CreateDirectory(localDirectory);
+            // Send the latest image to Line
+            await SendPictureToLineNotifyAsync(latestImage, "Motion Detected");
+            lastUpdateTime = File.GetLastWriteTime(latestImage);
         }
 
-        while (true)
-        {
-            try
-            {
-                Console.WriteLine(localDirectory);
-                //Console.WriteLine("Date");
-
-                string latestImage = GetLatestImage(localDirectory);
-                //Console.WriteLine(latestImage);
-
-                if (!string.IsNullOrEmpty(latestImage) && File.GetLastWriteTime(latestImage) > lastUpdateTime)
-                {
-                    Console.WriteLine("test");
-                    // Send the latest image to Line
-                    await SendPictureToLineNotifyAsync(latestImage, "Motion Detected");
-                    lastUpdateTime = File.GetLastWriteTime(latestImage);
-                }
-
-                // Sleep for a period before checking again (e.g., every 5 seconds)
-                await Task.Delay(TimeSpan.FromSeconds(5));
-
-                /////////// send pic to line noti
-                //SendPictureToLineNotifyAsync(latestImage, "Motion Detect").Wait();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
-        }
+        // Sleep for a period before checking again (e.g., every 5 seconds)
+        await Task.Delay(TimeSpan.FromSeconds(5));
 
         // line noti sender task
         async Task SendPictureToLineNotifyAsync(string imagePath, string message)
         {
-
             using (var httpClient = new HttpClient())
             {
                 var content = new MultipartFormDataContent();
@@ -86,18 +67,25 @@ class Program
             }
         }
 
-        static string GetLatestImage(string folderPath)
-        {
-            string[] imageFiles = Directory.GetFiles(folderPath, "*.jpg");
-
-            if (imageFiles.Length == 0)
-            {
-                return null;
-            }
-
-            Array.Sort(imageFiles, (a, b) => File.GetLastWriteTime(b).CompareTo(File.GetLastWriteTime(a)));
-
-            return imageFiles[0];
-        }
+        /////////// send pic to line noti
+        //SendPictureToLineNotifyAsync(latestImage, "Motion Detect").Wait();
     }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error: {ex.Message}");
+    }
+}
+
+static string GetLatestImage(string folderPath)
+{
+    string[] imageFiles = Directory.GetFiles(folderPath, "*.jpg");
+
+    if (imageFiles.Length == 0)
+    {
+        return null;
+    }
+
+    Array.Sort(imageFiles, (a, b) => File.GetLastWriteTime(b).CompareTo(File.GetLastWriteTime(a)));
+
+    return imageFiles[0];
 }
