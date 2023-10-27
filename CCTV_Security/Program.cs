@@ -21,13 +21,14 @@ class Program
 
             try
             {
-                Console.WriteLine(Date);
+                //Console.WriteLine(Date);
                 //Console.WriteLine("Date");
 
                 DateTime lastUpdateTime = DateTime.MinValue;
                 // Get Current Date
 
                 string latestImage = GetLatestImage(localDirectory);
+                Console.WriteLine(latestImage);
 
                 if (!string.IsNullOrEmpty(latestImage) && File.GetLastWriteTime(latestImage) > lastUpdateTime)
                 {
