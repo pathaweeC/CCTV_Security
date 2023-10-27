@@ -7,7 +7,6 @@ class Program
 {
     private static async Task Main(string[] args)
     {
-
         while (true)
         {
             DateTime currentDate = DateTime.Now;
@@ -25,6 +24,7 @@ class Program
             try
             {
                 Console.WriteLine(Date);
+                Console.WriteLine("Date");
 
                 DateTime lastUpdateTime = DateTime.MinValue;
                 // Get Current Date
