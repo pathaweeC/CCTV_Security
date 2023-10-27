@@ -3,10 +3,12 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-internal class Program
+class Program
 {
     private static async Task Main(string[] args)
     {
+        Console.WriteLine("Hello World...");
+
         DateTime lastUpdateTime = DateTime.MinValue;
         // Get Current Date
         DateTime currentDate = DateTime.Now;
@@ -20,7 +22,7 @@ internal class Program
         {
             Directory.CreateDirectory(localDirectory);
         }
-        Console.WriteLine("qwe");
+
         Console.WriteLine(localDirectory);
 
         while (true)
