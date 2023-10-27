@@ -7,25 +7,24 @@ class Program
 {
     private static async Task Main(string[] args)
     {
+        DateTime lastUpdateTime = DateTime.MinValue;
+        // Get Current Date
+        DateTime currentDate = DateTime.Now;
+        string Date = currentDate.ToString("yyyy-MM-dd");
+
+        string localDirectory = "@/data/MotionDetect/" + Date + "";
+
+        if (!Directory.Exists(localDirectory))
+        {
+            Directory.CreateDirectory(localDirectory);
+        }
+
         while (true)
         {
-            DateTime currentDate = DateTime.Now;
-            string Date = currentDate.ToString("yyyy-MM-dd");
-
-            string localDirectory = "@/data/MotionDetect/" + Date + "";
-
-            if (!Directory.Exists(localDirectory))
-            {
-                Directory.CreateDirectory(localDirectory);
-            }
-
             try
             {
-                //Console.WriteLine(Date);
+                Console.WriteLine(localDirectory);
                 //Console.WriteLine("Date");
-
-                DateTime lastUpdateTime = DateTime.MinValue;
-                // Get Current Date
 
                 string latestImage = GetLatestImage(localDirectory);
                 Console.WriteLine(latestImage);
