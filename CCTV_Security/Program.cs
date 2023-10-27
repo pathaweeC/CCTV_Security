@@ -15,6 +15,8 @@ class Program
 
             string localDirectory = "@/data/MotionDetect/" + Date + "";
 
+            Console.WriteLine(Date);
+
             if (!Directory.Exists(localDirectory))
             {
                 Directory.CreateDirectory(localDirectory);
