@@ -22,7 +22,7 @@ internal class Program
         }
 
         Console.WriteLine(localDirectory);
-
+        Console.WriteLine("qwe");
         while (true)
         {
             try
@@ -30,7 +30,7 @@ internal class Program
 
                 string latestImage = GetLatestImage(localDirectory);
 
-                Console.WriteLine("qwe");
+
                 //if (!string.IsNullOrEmpty(latestImage) && File.GetLastWriteTime(latestImage) > lastUpdateTime)
                 if (!string.IsNullOrEmpty(latestImage))
                 {
