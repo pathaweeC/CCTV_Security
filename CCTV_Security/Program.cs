@@ -7,6 +7,8 @@ class Program
 {
     private static async Task Main(string[] args)
     {
+        Console.WriteLine("Date");
+
         while (true)
         {
             DateTime currentDate = DateTime.Now;
