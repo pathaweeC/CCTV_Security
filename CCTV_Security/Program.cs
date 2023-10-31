@@ -22,10 +22,10 @@ class Program
 
                 string lineNotifyToken = "JAxPFavKxgi07CLsN2eE29Li09eXa6Ab7ncHikkFAtQ";
 
-                if (!Directory.Exists(localDirectory))
-                {
-                    Directory.CreateDirectory(localDirectory);
-                }
+                //if (!Directory.Exists(localDirectory))
+                //{
+                //    Directory.CreateDirectory(localDirectory);
+                //}
 
                 Console.WriteLine(localDirectory);
 
