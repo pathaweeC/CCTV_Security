@@ -9,29 +9,27 @@ class Program
     {
         Console.WriteLine("Hello World...");
 
-        DateTime lastUpdateTime = DateTime.MinValue;
-        // Get Current Date
-        DateTime currentDate = DateTime.Now;
-        string Date = currentDate.ToString("yyyy-MM-dd");
-
-        string localDirectory = @"/data/MotionDetect/" + Date + "";
-
-        string lineNotifyToken = "JAxPFavKxgi07CLsN2eE29Li09eXa6Ab7ncHikkFAtQ";
-
-        if (!Directory.Exists(localDirectory))
-        {
-            Directory.CreateDirectory(localDirectory);
-        }
-
-        Console.WriteLine(localDirectory);
-
         while (true)
         {
             try
             {
+                DateTime lastUpdateTime = DateTime.MinValue;
+                // Get Current Date
+                DateTime currentDate = DateTime.Now;
+                string Date = currentDate.ToString("yyyy-MM-dd");
+
+                string localDirectory = @"/data/MotionDetect/" + Date + "";
+
+                string lineNotifyToken = "JAxPFavKxgi07CLsN2eE29Li09eXa6Ab7ncHikkFAtQ";
+
+                if (!Directory.Exists(localDirectory))
+                {
+                    Directory.CreateDirectory(localDirectory);
+                }
+
+                Console.WriteLine(localDirectory);
 
                 string latestImage = GetLatestImage(localDirectory);
-
 
                 if (!string.IsNullOrEmpty(latestImage) && File.GetLastWriteTime(latestImage) > lastUpdateTime)
                 //if (!string.IsNullOrEmpty(latestImage))
